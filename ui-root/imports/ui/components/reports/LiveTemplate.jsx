@@ -2,8 +2,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import Card, { CardHeader, CardContent, } from
-        'material-ui/Card';
+import Card, { CardHeader, CardContent, } from 'material-ui/Card';
 import { Input, Snackbar, Typography, } from 'material-ui';
 
 import { DefaultLogger } from "../../../../client/logging";

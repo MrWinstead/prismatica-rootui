@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-import Button from "material-ui/Button"
-import Card, { CardHeader, CardContent, CardActions } from
-        'material-ui/Card';
-import { Delete, SquareEditOutline } from "mdi-material-ui"
+import { Card, CardHeader, CardText, CardActions } from 'material-ui/Card';
+import { RaisedButton, } from "material-ui"
+import { Delete, Pencil } from "mdi-material-ui"
 
 
 export class TemplateInstanceAsCard extends React.Component {
@@ -23,17 +22,16 @@ export class TemplateInstanceAsCard extends React.Component {
             <Card body>
                 <CardHeader title={this.props.reportTemplate.name} />
 
-                <CardContent>{this.props.reportTemplate.text}</CardContent>
+                <CardText>{this.props.reportTemplate.text}</CardText>
 
                 <CardActions>
-                    <Button variant="raised" onClick={() => {
+                    <RaisedButton onClick={() => {
                         this.props.startLiveRenderingCallback()}}>
-                        <SquareEditOutline/>
-                    </Button>
-                    <Button variant="raised" onClick={() => {
-                        this.handleCardDelete()}}>
-                        <Delete/>
-                    </Button>
+                        <Pencil />
+                    </RaisedButton>
+                    <RaisedButton onClick={() => {this.handleCardDelete()}}>
+                        <Delete />
+                    </RaisedButton>
                 </CardActions>
             </Card>
         );

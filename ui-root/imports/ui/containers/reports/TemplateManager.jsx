@@ -1,11 +1,13 @@
 
 import React from 'react';
+import { MuiThemeProvider } from "material-ui/styles";
+import { RaisedButton } from "material-ui"
 
-import { Meteor } from "meteor/meteor"
-import { Alert, Button, CardDeck, Container, Row } from "reactstrap"
+// Deprecated
+import { Alert, Row } from "reactstrap"
 
 import { DefaultLogger } from "../../../../client/logging";
-
+import { DefaultTheme } from "../../Theme";
 import { DeleteTemplate } from "../../../api/reports/methods";
 import { ReportTemplates } from "../../../api/reports/models";
 
@@ -146,23 +148,25 @@ export default class TemplateManager extends React.Component {
         return (
         <Row>
             <h1>Template Management</h1>
-            <Button color={this.state.showNewTemplateForm ?
+            <RaisedButton color={this.state.showNewTemplateForm ?
                     "warning" : "success"}
                 onClick={() => {this.toggleDisplayTemplateInstanceCreate()}}>
                 {this.state.showNewTemplateForm ? "Cancel" : "New"}
-            </Button>
+            </RaisedButton>
         </Row>
         );
     }
 
     render() {
         return (
-        <Container>
+        <MuiThemeProvider muiTheme={DefaultTheme}>
+        <div>
             { this.renderManagerTopBar() }
             { this.state.showNewTemplateForm ? this.renderTemplateInstanceCreate() : null }
             { this.state.showLiveTemplateRendering ? this.renderLiveTemplateRendering() : null }
             { this.renderTemplateInstances() }
-        </Container>
+        </div>
+        </MuiThemeProvider>
         );
 
     }

@@ -2,8 +2,10 @@
 import Bunyan from "bunyan"
 import { Meteor } from "meteor/meteor"
 
+import {ConfigureAccounts} from "./accounts/configuration";
 import { DefaultLogger } from "./logging";
 
+// This could be troublesome in the future since it isn't stored in Mongodb
 const currentSettings = {...Meteor.settings};
 
 export const settingNameRPCReportRender = "RpcReportRender";
@@ -31,6 +33,8 @@ function loadSettings() {
     if(process.env.PRISMATICA_LOG_INFO){
         DefaultLogger.level(Bunyan.INFO);
     }
+
+    ConfigureAccounts();
 }
 
 Meteor.startup(loadSettings);

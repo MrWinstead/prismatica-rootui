@@ -1,12 +1,14 @@
+/**
+ * Use for a session to live edit and render a template
+ */
+import Button from 'material-ui/RaisedButton'
 import React from 'react';
 import PropTypes from 'prop-types'
-
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { Random } from "meteor/random"
+import { Close } from "mdi-material-ui"
 
 import { Container, Input, Label, Row, Col } from "reactstrap"
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import Button from 'material-ui/Button'
-import { Close, } from "mdi-material-ui"
 
 import { KeyValueDisplay } from "./KeyValueDisplay";
 import { LiveTemplate } from "./LiveTemplate";
@@ -125,11 +127,10 @@ export class LiveTemplateRendering extends React.Component {
 
             <Row><Col>
                 <Button
-                    variant="raised"
                     color="secondary"
                     onClick={() => { this.props.onComplete() }}>
 
-                    Close<Close/>
+                    Done<Close />
                 </Button>
             </Col></Row>
             </Container></MuiThemeProvider>
